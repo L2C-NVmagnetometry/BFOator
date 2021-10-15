@@ -1,4 +1,4 @@
-# BFO
+# BFO-ator
 
 BFO field calculations with analytical formulas, presented in a nice GUI.
 
