@@ -41,11 +41,12 @@
 This program computes the stray field profile from the cycloid in \BFO, as it is measured with NV center magnetometry. Three cases are considered, and correspond to the three available tabs:
 \begin{itemize}
   
-\item The type 1 (bulk-like) cycloid in (001)-oriented \BFO
-\item The type 2 (exotic) cycloid in (001)-oriented \BFO
-\item The type 1 (bulk-like) cycloid in (111)-oriented \BFO
+\item The type 1 (bulk-like) cycloid in (001)-oriented \BFO, with P along [111]
+\item The type 2 (exotic) cycloid in (001)-oriented \BFO, with P along [111]
+\item The type 1 (bulk-like) cycloid in (111)-oriented \BFO, with P along [111]
+\item The type 1 (bulk-like) cycloid in (111)-oriented \BFO, with P along $[11\bar{1}]$
 \end{itemize}
-In each tab, you can enter the parameters in the left section on the window. These parameters are detailed in the following sections. In the right part of the window, the corresponding profiles are plotted. You can select which magnetic field components you would like to plot with the tick boxes. With the save button, you can export these profiles in .txt format. Above the plots, the amplitude and apparent period indicated correspond to the $B_\text{NV}$ component.
+In each tab, you can enter the parameters in the left section on the window. These parameters are detailed in the following sections. In the right part of the window, the corresponding profiles are plotted. You can select which magnetic field components you would like to plot with the tick boxes. With the save button, you can export these profiles in .txt format. To save the graphs, right-click on the plot and select ``Export \ldots''. Above the plots, the amplitude and apparent period indicated correspond to the $B_\text{NV}$ component.
 \begin{center}
   \includegraphics[width=15cm]{BFO-ator_window.png}
 \end{center}
@@ -353,7 +354,7 @@ If the cycloid propagates along $\vec{k'}_3 [11\bar{2}]$, the canted magnetic mo
   where $a$ is the \BFO lattice parameter and $t$ the film thickness.
   
 \clearpage
-\section{Tab 111, type 1}
+\section{Tab 111, type 1, P oop}
 \subsection{Geometry and parameters}
 
 The three possible k directions are completely equivalent, so there is no choice between them in this case. $\vec{k}$ is set along the $x$ direction (like $\vec{k}_1$ in the figure). There is in principle an odd/even effect on the number of unit cell in the layer thickness, therefore the thickness parameter is set in layers and not in \si{\nano\meter}.
@@ -444,10 +445,158 @@ The three possible k directions are completely equivalent, so there is no choice
         \left(\frac{1-(-e^{-\frac{ka\sqrt{3}}{3}})^N}{1+e^{-\frac{ka\sqrt{3}}{3}}}\right) \cos(kx) \\
         B_y &= 0 \\
         B_z & = -2 \mu_0 \frac{m_s}{V} e^{-k z} \sinh\left( \frac{ka\sqrt{3}}{6}\right)
-        \left( \frac{1-(-e^{-\frac{ka\sqrt{3}}{3}})^N}{1+e^{-\frac{ka\sqrt{3}}{3x}}} \right) \sin(kx) \\ 
+        \left( \frac{1-(-e^{-\frac{ka\sqrt{3}}{3}})^N}{1+e^{-\frac{ka\sqrt{3}}{3}}} \right) \sin(kx) \\ 
       \end{aligned}
     \right.
   \end{equation*}
 
   where $a$ is the \BFO lattice parameter and $N$ the number of unit cells in the layer thickness.
+
+\clearpage
+\section{Tab 111, type 1, P ip}
+\subsection{Geometry and parameters}
+
+In this case both the cycloid and the spin density wave are contributing to the magnetic field, so we need to considering the dephasing between them. In addition, there is an odd/even effect on the number of unit cell in the layer thickness, therefore the thickness parameter is set in layers and not in \si{\nano\meter}.
+
+\vspace*{1em}
+
+\begin{wrapfigure}[24]{l}{7.5cm}
+  \centering
+  \begin{tikzpicture}[tdplot_main_coords]
+     \def\c{2.7}
+   
+          \draw[violet, line width=2pt, stealth-stealth](0, 0, 1)--++(\c, 0, 0) node[node font=\large, above left]{$\vec{k}_1$};
+        
+         \draw[orange, line width=2pt, stealth-stealth](0, 0, 1)--++(0.5*\c, 0.29*\c, 0.81*\c) node[fill=white, fill opacity= 0.7,inner sep=0.5pt, node font=\large, below right=3mm and 1mm]{$\vec{k}_3$};
+         \draw[gray!70, line width=3pt, -Triangle] (0*\c, 0.3*\c, 0.2*\c)--++(0, -1.09*\c, 0.39*\c)node[gray, node font=\large, above=0mm, fill=white, fill opacity= 0.7,inner sep=0.5pt]{$\vec{P} [11\bar{1}]$};
+          \draw[red, line width=2pt, stealth-stealth](\c, 0, 1)--++(-0.5*\c, 0.29*\c, 0.81*\c) node[node font=\large, below left=2mm and 5mm, fill=white, fill opacity= 0.7,inner sep=0.5pt]{$\vec{k}_2$};
+       
+       
+        \begin{scope}[xshift=2.8cm, yshift=-0.75cm]
+          \draw[-stealth] (0, 0, 0)--(0, 0, 1)node[right]{$z$};
+          \draw[-stealth] (0, 0, 0)--(1, 0, 0)node[below]{$x$};
+          \draw[-stealth] (0, 0, 0)--(0, 1, 0)node[below]{$y$};
+        \end{scope}
+
+
+        \begin{scope}
+          \def\z{7}
+          \draw[thin, fill=cyan!10] (\c, 0, \z) --++ (2*\c, 0, 0) --++ (0, 2*\c, 0) --++ (-2*\c, 0, 0) -- cycle;
+          \node[align=center] at (5, -0.5, 7.5){imaging\\ plane};
+          \draw[-stealth] (1.5*\c, \c, \z)--++(\c, 0, 0)node[below left]{$x$};
+          \draw[-stealth] (2*\c, 0.5*\c, \z)--++(0, \c, 0)node[right]{$y$};
+          \draw[ultra thick, Blue4] (1.5*\c, 0.25*\c, \z)--++(\c, 1.5*\c, 0);
+          \node[Blue4, node font=\footnotesize, rotate=-36] at (1.45*\c, 0.4*\c, \z){profile};
+          \draw[Blue4] (2.3*\c, \c, \z) to [bend right] (2.15*\c, 1.25*\c, \z);
+          \node[Blue4, align=center, node font=\footnotesize] at (2.6*\c, 1.3*\c, \z) {profile\\[-3pt] angle};
+          
+        \end{scope}
+
+        \begin{scope}
+          \def\d{8}
+
+          \draw[-stealth] (1, 1, \d-1.25)--++(0,0,2.5);
+          \draw[SpringGreen3] (1, 1, \d+0.75) to [bend left] (1, 1.5, \d+0.45);
+          \node[SpringGreen3] at (1.2, 1.5, \d+1.2){$\theta$};
+          \draw[-stealth] (-1.25, 1, \d)--++(2.5,0,0);
+          \draw[-stealth] (1, -0.5, \d)--++(0,3,0);
+          \draw[SpringGreen3, line width=4pt, -stealth] (-1, -1, \d-2)--++(4, 4, 4);
+          \node[fill=SpringGreen3, circle] at (1, 1, \d){};
+          \node[SpringGreen3, node font={\large,\bf}] at (1.5, 0.5, \d+0.5){NV};
+          \draw[SpringGreen3, dashed] (3, 3, \d+2)--(3, 3, \d)--(1,1,\d);
+          \draw[SpringGreen3] (2.5, 1, \d) to [bend right] (2, 2, \d);
+          \node[SpringGreen3] at (2.5, 1.25, \d-0.5){$\varphi$};
+          \draw[-stealth] (1, 1, \d)--++(2.5,0,0);
+        \end{scope}
+
+     \end{tikzpicture}
+  \caption{Geometry of the considered type 1 cycloid in (111)-oriented \BFO}
+\end{wrapfigure}
+
+\textbf{Parameters:}
+\begin{itemize}
+\item Cycloid parameters
+  \begin{itemize}
+  \item Period: cycloid period in \si{\nano\meter}
+  \item m\_S: Fe magnetic moment, in $\mu_B$
+  \item m\_DM: canted magnetic moment, in $\mu_B$
+  \item Phase: dephasing between the cycloid and the spin density wave, in~°
+  \item Rotational sense: for the cycloid part, exchanging it corresponds to $\vec{P}$ \textrightarrow $-\vec{P}$
+  \item Film thickness: number of unit cells in the layer thickness
+  \end{itemize}
+\item Tip parameters
+  \begin{itemize}
+  \item d\_NV: distance between the NV center and the surface, in \si{\nano\meter}
+  \item $\theta$: polar angle of the NV orientation, in~°
+  \item $\varphi$: azimuthal angle of the NV\\ orientation, in~°
+  \end{itemize}
+\item Profile parameters
+  \begin{itemize}
+  \item Profile angle: direction of the\\ measured profile, in~°
+  \item r\_min, r\_max: start and stop \\coordinates of the profile, in \si{\nano\meter}
+  \item Nb of points: Number of data points along the profile
+  \end{itemize}
+\end{itemize}
+
+\subsection{Analytical expression}
+
+\subsubsection{Cycloid propagating along $\vec{k}_1$}
+
+\begin{equation*}
+    \left \lbrace
+      \begin{aligned}
+        B_x & = \frac{\mu_0}{V}  e^{-k z} \sinh \left(\frac{ka\sqrt{3}}{6}\right) \left[ m_s(1-\frac{\varepsilon}{3})  \left(\frac{1-(-e^{-\frac{ka\sqrt{3}}{3}})^N}{1+e^{-\frac{ka\sqrt{3}}{3}}}\right) \cos(kx) \right. \\ & \left. \hspace*{42mm} + \frac{2\sqrt{2}}{3} m_\text{DM}  \left(\frac{1-e^{-\frac{kaN\sqrt{3}}{3}}}{1-e^{-\frac{ka\sqrt{3}}{3}}}\right) \sin(kx+\Phi) \right] \\
+        B_y &= 0 \\
+        B_z & = -\frac{\mu_0}{V} e^{-k z} \sinh\left( \frac{ka\sqrt{3}}{6}\right) \left[ m_s(1-\frac{\varepsilon}{3})  \left(\frac{1-(-e^{-\frac{ka\sqrt{3}}{3}})^N}{1+e^{-\frac{ka\sqrt{3}}{3}}}\right) \sin(kx) \right. \\ & \left. \hspace*{44mm} - \frac{2\sqrt{2}}{3} m_\text{DM} \left(\frac{1-e^{-\frac{kaN\sqrt{3}}{3}}}{1-e^{-\frac{ka\sqrt{3}}{3}}}\right) \cos(kx+\Phi) \right] \\
+      \end{aligned}
+    \right.
+\end{equation*}
+where $a$ is the \BFO lattice parameter and $N$ the number of unit cells in the layer thickness.
+
+\subsubsection{Cycloid propagating along $\vec{k}_2$}
+\begin{equation*}
+  \left \lbrace
+    \begin{aligned}
+      B_x & = \frac{\sqrt{3} \ A}{2}  \left[ m_s  (\sqrt{3} + \varepsilon)\left( \Re{S_1} - \sqrt{2} \Im{S_1} \right) + \sqrt{2} \ m_\text{DM} \left( \sqrt{2} \Re{S_2} +  \Im{S_2)}  \right) \right]\\
+      B_y &= \frac{A}{2}   \left[ m_s  (\sqrt{3} + \varepsilon)\left( \Re{S_1} - \sqrt{2} \Im{S_1} \right) + \sqrt{2} \ m_\text{DM} \left(  \sqrt{2} \Re{S_2} + \Im{S_2)}  \right) \right]\\
+      B_z & = A  \left[ 3 \ m_s (\sqrt{3}+\varepsilon) \Im{S_1} - \sqrt{2} \ m_\text{DM}(2\sqrt{2} \Im{S_2} + \Re{S_2}  \right]
+    \end{aligned}
+  \right. 
+\end{equation*}
+with
+\begin{equation*}
+  A = \frac{\mu_0}{3V} \sinh\left( \frac{ka}{6}\right) e^{-\frac{kz}{\sqrt{3}}}
+\end{equation*}
+and
+\begin{equation*}
+ S_1  = e^{i\vec{k}_2 \cdot \vec{r}} \ \frac{1-(-1)^Ne^{-\frac{kNa}{3}(1-i\sqrt{2})}}{1 + e^{-\frac{ka}{3}(1-i\sqrt{2})}}, \ \
+ S_2  = e^{i(\vec{k}_2 \cdot \vec{r} + \Phi)} \ \frac{1-e^{-\frac{kNa}{3}(1-i\sqrt{2})}}{1 - e^{-\frac{ka}{3}(1-i\sqrt{2})}} 
+\end{equation*}
+
+where $a$ is the \BFO lattice parameter and $N$ the number of unit cells in the layer thickness.
+
+\subsubsection{Cycloid propagating along $\vec{k}_3$}
+
+
+\begin{equation*}
+  \left \lbrace
+    \begin{aligned}
+      B_x & = \frac{\sqrt{3} \  A}{2}  \left[ m_s  (\sqrt{3} + \varepsilon)\left( \Re{S_1} + \sqrt{2} \Im{S_1} \right) - \sqrt{2} \ m_\text{DM} \left( \sqrt{2} \Re{S_2} -  \Im{S_2)}  \right) \right]\\
+      B_y &= -\frac{A}{2}   \left[ m_s  (\sqrt{3} + \varepsilon)\left( \Re{S_1} + \sqrt{2} \Im{S_1} \right) - \sqrt{2} \ m_\text{DM} \left(  \sqrt{2} \Re{S_2} - \Im{S_2)}  \right) \right]\\
+      B_z & = A  \left[ 3 \ m_s (\sqrt{3}+\varepsilon) \Im{S_1} - \sqrt{2} \ m_\text{DM}(2\sqrt{2} \Im{S_2} - \Re{S_2} ) \right]
+    \end{aligned}
+  \right. 
+\end{equation*}
+with
+\begin{equation*}
+  A = \frac{\mu_0}{3V} \sinh\left( \frac{ka}{6}\right) e^{-\frac{kz}{\sqrt{3}}}
+\end{equation*}
+and
+\begin{equation*}
+  S_1  = e^{i\vec{k}_3 \cdot \vec{r}} \ \frac{1-(-1)^Ne^{-\frac{kNa}{3}(1+i\sqrt{2})}}{1 + e^{-\frac{ka}{3}(1+i\sqrt{2})}}, \ \
+ S_2  = e^{i(\vec{k}_3 \cdot \vec{r} + \Phi)} \ \frac{1-e^{-\frac{kNa}{3}(1+i\sqrt{2})}}{1 - e^{-\frac{ka}{3}(1+i\sqrt{2})}} 
+\end{equation*}
+
+where $a$ is the \BFO lattice parameter and $N$ the number of unit cells in the layer thickness.
+
 \end{document}
