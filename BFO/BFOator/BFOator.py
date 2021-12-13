@@ -339,12 +339,12 @@ class BFOator():
                           "Crystal orientation": "(001), P along [111]",
                           "Propagation vector" : self._mw.k_001t1_comboBox.currentText(),
                           "Period (nm)": self._mw.period_001t1_doubleSpinBox.value(),
-                          "mDM (µB)": self._mw.mDM_001t1_doubleSpinBox.value(),
+                          "mDM (muB)": self._mw.mDM_001t1_doubleSpinBox.value(),
                           "BFO thickness (nm)": self._mw.t_001t1_doubleSpinBox.value(),
                           "Tip  height dNV (nm)": self._mw.dNV_001t1_doubleSpinBox.value(),
-                          "Tip polar angle θ (°)": self._mw.theta_001t1_doubleSpinBox.value(),
-                          "Tip azimuthal angle φ (°)": self._mw.phi_001t1_doubleSpinBox.value(),
-                          "Profile angle (°)": self._mw.prof_001t1_doubleSpinBox.value(),
+                          "Tip polar angle theta (deg)": self._mw.theta_001t1_doubleSpinBox.value(),
+                          "Tip azimuthal angle phi (deg)": self._mw.phi_001t1_doubleSpinBox.value(),
+                          "Profile angle (deg)": self._mw.prof_001t1_doubleSpinBox.value(),
                           "Number of points": self._mw.nb_pts_001t1_spinBox.value()}
         
         if self._mw.k_001t1_comboBox.currentText()=="k1 [1-10]":
@@ -404,12 +404,12 @@ class BFOator():
                           "Crystal orientation": "(001), P along [111]",
                           "Propagation vector" : self._mw.k_001t2_comboBox.currentText(),
                           "Period (nm)": self._mw.period_001t2_doubleSpinBox.value(),
-                          "mDM (µB)": self._mw.mDM_001t2_doubleSpinBox.value(),
+                          "mDM (muB)": self._mw.mDM_001t2_doubleSpinBox.value(),
                           "BFO thickness (nm)": self._mw.t_001t2_doubleSpinBox.value(),
                           "Tip  height dNV (nm)": self._mw.dNV_001t2_doubleSpinBox.value(),
-                          "Tip polar angle θ (°)": self._mw.theta_001t2_doubleSpinBox.value(),
-                          "Tip azimuthal angle φ (°)": self._mw.phi_001t2_doubleSpinBox.value(),
-                          "Profile angle (°)": self._mw.prof_001t2_doubleSpinBox.value(),
+                          "Tip polar angle theta (deg)": self._mw.theta_001t2_doubleSpinBox.value(),
+                          "Tip azimuthal angle phi (deg)": self._mw.phi_001t2_doubleSpinBox.value(),
+                          "Profile angle (deg)": self._mw.prof_001t2_doubleSpinBox.value(),
                           "Number of points": self._mw.nb_pts_001t2_spinBox.value()}
         
         if self._mw.k_001t2_comboBox.currentText()=="k'1 [-211]":
@@ -469,12 +469,12 @@ class BFOator():
         self.params_dict={"Cycloid type": "Type 1",
                           "Crystal orientation": "(111), P along [111]",
                           "Period (nm)": self._mw.period_111_doubleSpinBox.value(),
-                          "mS (µB)": self._mw.mS_111_doubleSpinBox.value(),
+                          "mS (muB)": self._mw.mS_111_doubleSpinBox.value(),
                           "Number of BFO layers": self._mw.t_111_spinBox.value(),
                           "Tip  height dNV (nm)": self._mw.dNV_111_doubleSpinBox.value(),
-                          "Tip polar angle θ (°)": self._mw.theta_111_doubleSpinBox.value(),
-                          "Tip azimuthal angle φ (°)": self._mw.phi_111_doubleSpinBox.value(),
-                          "Profile angle (°)": self._mw.prof_111_doubleSpinBox.value(),
+                          "Tip polar angle theta (deg)": self._mw.theta_111_doubleSpinBox.value(),
+                          "Tip azimuthal angle phi (deg)": self._mw.phi_111_doubleSpinBox.value(),
+                          "Profile angle (deg)": self._mw.prof_111_doubleSpinBox.value(),
                           "Number of points": self._mw.nb_pts_111_spinBox.value()}
 
         self.data["Bx"] = t1_111.Bx(x, y, dNV, period, mS, N)
@@ -528,15 +528,15 @@ class BFOator():
                           "Crystal orientation": "(111), P along [11-1]",
                           "Propagation vector" : self._mw.k_111_ip_comboBox.currentText(),
                           "Period (nm)": self._mw.period_111_ip_doubleSpinBox.value(),
-                          "mS (µB)": self._mw.mS_111_ip_doubleSpinBox.value(),
-                          "mDM (µB)": self._mw.mDM_111_ip_doubleSpinBox.value(),
-                          "Phase (°)": self._mw.phase_111_ip_doubleSpinBox.value(),
+                          "mS (muB)": self._mw.mS_111_ip_doubleSpinBox.value(),
+                          "mDM (muB)": self._mw.mDM_111_ip_doubleSpinBox.value(),
+                          "Phase (deg)": self._mw.phase_111_ip_doubleSpinBox.value(),
                           "Rotational sense": self._mw.rot_sense_111_ip_comboBox.currentText(),
                           "Number of BFO layers": self._mw.t_111_ip_spinBox.value(),
                           "Tip  height dNV (nm)": self._mw.dNV_111_ip_doubleSpinBox.value(),
-                          "Tip polar angle θ (°)": self._mw.theta_111_ip_doubleSpinBox.value(),
-                          "Tip azimuthal angle φ (°)": self._mw.phi_111_ip_doubleSpinBox.value(),
-                          "Profile angle (°)": self._mw.prof_111_ip_doubleSpinBox.value(),
+                          "Tip polar angle theta (deg)": self._mw.theta_111_ip_doubleSpinBox.value(),
+                          "Tip azimuthal angle phi (deg)": self._mw.phi_111_ip_doubleSpinBox.value(),
+                          "Profile angle (deg)": self._mw.prof_111_ip_doubleSpinBox.value(),
                           "Number of points": self._mw.nb_pts_111_ip_spinBox.value()}
         
         if self._mw.k_111_ip_comboBox.currentText()=="k1":
