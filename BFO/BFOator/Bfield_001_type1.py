@@ -1,8 +1,10 @@
 import numpy as np
 mu0 = np.pi*4e-7  # vacuum permeability, T.m/A
-muB = 9.274e-24  # Bohr magnetron, J/T or A.m^2
+muB = 9.274e-24  # Bohr magnetron, J/T or A.m^2a
 a = 3.96e-10
+#a = 3.99e-10
 V = a**3
+#V = a*3.95e-10*3.95e-10
 
 ## Fonctions to compute the magnetic field from 001 BFO, cycloid type 1
 # We assume P along 111
@@ -80,7 +82,7 @@ def prefactor_k2(k, mDM):
     --------
     Everything in SI units !!! Use lengths in m and mDM in muB.
     """
-    return ut.mu0*mDM*ut.muB*np.sinh(k*a/(2*np.sqrt(2)))/(np.sqrt(3)*V)
+    return mu0*mDM*muB*np.sinh(k*a/(2*np.sqrt(2)))/(np.sqrt(3)*V)
 
 def sum_k2(x, k, zNV, N):
      """

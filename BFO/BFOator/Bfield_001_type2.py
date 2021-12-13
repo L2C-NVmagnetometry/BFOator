@@ -2,7 +2,9 @@ import numpy as np
 mu0 = np.pi*4e-7  # vacuum permeability, T.m/A
 muB = 9.274e-24  # Bohr magnetron, J/T or A.m^2
 a = 3.96e-10
+#a = 3.93e-10
 V = a**3
+#V = a*3.99e-10*3.99e-10
 
 ## Fonctions to compute the magnetic field from 001 BFO, cycloid type 2
 # We assume P along 111
@@ -225,7 +227,7 @@ def prefactor_k3_alpha(k, mDM, alpha):
     Everything in SI units !!! Use lengths in m and mDM in muB.
     """
     sqrt_term = np.sqrt(np.cos(alpha)**2 + 3*np.sin(alpha)**2)
-    return 2*ut.mu0*mDM*ut.muB*np.sinh(k*a*sqrt_term/(2*np.sqrt(6)))/(np.sqrt(6)*V)
+    return 2*mu0*mDM*muB*np.sinh(k*a*sqrt_term/(2*np.sqrt(6)))/(np.sqrt(6)*V)
 
 
 def sum_k3_alpha(x, y, k, zNV, N, alpha):

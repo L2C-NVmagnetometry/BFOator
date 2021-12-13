@@ -47,7 +47,7 @@ def By(x, y, zNV, period, ms, N):
     --------
     Everything in SI units !!! Use lengths in m and mDM in muB, the output is in T.
     """
-    return 0
+    return np.zeros(len(x))
 
 
 def Bz(x, y, zNV, period, ms, N):
